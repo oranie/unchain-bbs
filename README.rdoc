@@ -1,28 +1,28 @@
-== README
+# Unchain BBS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+rails study
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+```
+git clone https://github.com/unchain-fm-oranie/unchain-bbs.git
+```
 
-* System dependencies
+* development
 
-* Configuration
+```
+./bin/rake db:migrate
+./bin/rails s
+```
 
-* Database creation
+* production
 
-* Database initialization
+```
+./bin/rake assets:precompile
+./bin/rake db:migrate RAILS_ENV=production
+RAILS_ENV=production ./bin/bundle exec unicorn
+```
 
-* How to run the test suite
+## LICENSE
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+MIT
