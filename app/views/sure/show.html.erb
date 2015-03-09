@@ -1,0 +1,40 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="span6">
+      <h3 id="page-top"><%= @sure.title %></h3>
+      <span><a href="#post-form">submit your post</a></span>
+    </div>
+  </div>
+<hr>
+
+  <div class="row">
+    <div class="span9">
+      <% @posts.each_with_index do |post, i| %>
+      <p id="<%= i+1 %>"><b>No.</b> <%= i+1 %> <b>name:</b> <%= post.name %> <b>date:</b> <%= post.created_at %></p>
+      <p><%= escape_content(post.content) %></p>
+      <hr>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span9">
+    <h3 id="post-form">Submit your post</h3>
+      <%= form_for(:new_post, :url => {:controller => 'post', :action => 'create'}, :html => { :class => 'form-horizontal' }) do |f| %>
+        <%= f.hidden_field :id, name: :sure_id, :value => @sure.id %>
+        <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name, name: :name, :placeholder => "name" %>
+        </div>
+        <div class="field">
+        <%= f.label :content %><br>
+        <%= f.text_area :content, name: :content, :placeholder => "content" %>
+        </div>
+        <div class="form-actions">
+        <%= f.submit "submit", :class => 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
