@@ -13,6 +13,13 @@ git clone https://github.com/unchain-fm-oranie/unchain-bbs.git
 ```
 gem install bundler
 bundle install
+```
+
+* Create MySQL Database 
+```
+mysql> create database unchainbbs_development;
+```
+
 ./bin/rake db:migrate
 ./bin/rails s
 ```
