@@ -11,6 +11,8 @@ git clone https://github.com/unchain-fm-oranie/unchain-bbs.git
 * development
 
 ```
+gem install bundler
+bundle install
 ./bin/rake db:migrate
 ./bin/rails s
 ```
